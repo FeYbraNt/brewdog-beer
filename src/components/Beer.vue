@@ -1,13 +1,16 @@
 <template>
     <article class="media">
         <figure class="media-left">
-            <p class="image is-128x128">
-                <img src="https://bulma.io/images/placeholders/128x128.png" alt="beerImage">
+            <p class="image" style="width: 64px;">
+                <img :src="beer.image_url" alt="beerImage">
             </p>
         </figure>
-        <p>
-            <strong>{{ beer.name }}</strong>
-        </p>
+        <div class="media-content">
+            <div class="content">
+                <p><strong>{{ beer.name }}, ABV:</strong> {{ beer.abv }}</p>
+                <p>{{ beer.description }}</p>
+            </div>
+        </div>
     </article>
 </template>
 
