@@ -7,14 +7,19 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/beers',
     name: 'beerlist',
     component: BeerList
   },
   {
-    path: '/:name',
-    name: 'BeerDetails',
-    component: BeerDetails
+    path: '/beers/:id',
+    name: 'beerdetails',
+    component: BeerDetails,
+    props: true
+  },
+  {
+    path: '*',
+    component: BeerList
   }
 ]
 

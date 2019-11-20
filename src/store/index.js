@@ -9,18 +9,24 @@ export default new Vuex.Store({
     beers: []
   },
   mutations: {
-    SET_BEERS (state, beers) {
+    SET_ALL_BEERS (state, beers) {
       state.beers = beers
     }
   },
   actions: {
-    FETCH_BEERS ({ commit }) {
+    FETCH_ALL_BEERS ({ commit }) {
       api.fetchBeers()
         .then(response => {
-          commit('SET_BEERS', response)
+          commit('SET_ALL_BEERS', response)
         })
+        .catch((error) => console.error(error))
     }
   },
-  modules: {
+  getters: {
+    getBeerById: () => (id) => {
+      return api.fetchBeer(id)
+        .then(response => response[0])
+        .catch(error => console.error(error))
+    }
   }
 })

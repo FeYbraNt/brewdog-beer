@@ -1,7 +1,7 @@
 <template>
     <section class="section">
         <div class="container">
-            <div class="notification is-danger" v-if="error">{{ error }}</div>
+            <b-notification :active.sync="error">{{ error }}</b-notification>
             <b-loading :active.sync="isLoading"></b-loading>
             <Beer v-for="beer in beers" :beer="beer" :key="beer.id" />
         </div>
@@ -21,9 +21,12 @@ export default {
         error: null
     }),
     mounted () {
-        this.$store.dispatch('FETCH_BEERS')
+        this.$store.dispatch('FETCH_ALL_BEERS')
             .then(() => this.isLoading = false)
-            .catch((error) => this.error = error)
+            .catch((error) => {
+                this.error = error
+                this.isLoading = false
+            })
     }
 }
 </script>

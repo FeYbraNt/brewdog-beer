@@ -8,7 +8,12 @@ export default {
     fetchBeers () {
         return axios.get(api_url + 'beers')
             .then(response => response.data)
-            .catch((error) => console.error(error))
+    },
+
+    // Returns single beer
+    fetchBeer (id) {
+        return axios.get(api_url + 'beers/' + id)
+            .then(response => response.data)
     }
 
 }
