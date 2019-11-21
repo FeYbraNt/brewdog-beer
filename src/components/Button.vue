@@ -1,5 +1,5 @@
 <template>
-    <b-button :type="(status == 'DONE') ? 'is-success' : 'is-primary'" 
+    <b-button :type="(status == 'DONE') ? 'is-success' : 'is-info'" 
         :disabled="isDisabled" @click="run">
         {{ status }}
     </b-button>

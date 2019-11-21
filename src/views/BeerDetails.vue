@@ -1,23 +1,12 @@
 <template>
-    <section class="section">
+    <section class="section" v-if="beer">
         <div class="container">
             <b-notification :active.sync="error">{{ error }}</b-notification>
             <b-loading :active.sync="isLoading"></b-loading>
-            <article class="media" v-if="beer">
-                <div class="media-left">
-                    <figure class="image" style="width: 64px">
-                        <img :src="beer.image_url" alt="beerImage">
-                    </figure>
-                </div>
-                <div class="media-content">
-                    <p class="title is-4">{{ beer.name }}</p>
-                    <p class="subtitle is-6">ABV: {{ beer.abv }}</p>
-                    <p>{{ beer.description }}</p>
-                </div>
-            </article>
+            <Beer :beer="beer" :key="beer.id" />
         </div>
         <br>
-        <div class="container" v-if="beer">
+        <div class="container">
             <b-tabs v-model="activeIngredient" type="is-boxed" expanded>
                 <b-tab-item v-for="(ingredient, index) in Object.values(beer.ingredients).slice(0,-1)" :key="index">
                     <template slot="header">
@@ -45,13 +34,14 @@
 </template>
 
 <script>
+import Beer from "@/components/Beer"
 import Ingredient from "@/components/Ingredient"
 import Method from "@/components/Method"
 
 export default {
     name: 'BeerDetails',
     props: ['id'],
-    components: { Ingredient, Method },
+    components: { Beer, Ingredient, Method },
     data: () => ({
         beer: null,
         isLoading: true,
