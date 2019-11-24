@@ -39,7 +39,7 @@ import Ingredient from "@/components/Ingredient"
 import Method from "@/components/Method"
 
 export default {
-    name: 'BeerDetails',
+    name: 'beerdetails',
     props: ['id'],
     components: { Beer, Ingredient, Method },
     data: () => ({
@@ -48,7 +48,7 @@ export default {
         error: null,
         activeIngredient: 0
     }),
-    created() {
+    mounted () {
         this.$store.getters.getBeerById(this.id)
             .then(response => {
                 this.beer = response

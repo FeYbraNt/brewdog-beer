@@ -1,4 +1,12 @@
-# brewdog-beer
+# Brewdog Beers
+
+Vue webapp which renders a list of Beers and their details  from Brewdog public API.
+
+- [Vue](https://vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/): Permanent Single State for Vue
+- [Vue-router](https://router.vuejs.org/): Routing for Vue
+- [Buefy](https://buefy.org/): UI components based on [Bulma](https://bulma.io/)
+- [Axios](https://github.com/axios/axios): Promise based HTTP client
 
 ## Project setup
 ```

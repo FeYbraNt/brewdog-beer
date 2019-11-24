@@ -7,6 +7,7 @@
 
 <script>
 export default {
+    name: 'buttonIM',
     data: () => ({
         status: "IDLE"
     }),

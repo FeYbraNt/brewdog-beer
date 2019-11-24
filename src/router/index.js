@@ -5,7 +5,7 @@ import BeerDetails from '../views/BeerDetails.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
+export const routes = [
   {
     path: '/beers',
     name: 'beerlist',
