@@ -1,3 +1,4 @@
 export const state = {
-    beers: []
+    beers: [],
+    page: 1
 }

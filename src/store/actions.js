@@ -7,5 +7,12 @@ export const actions = {
             commit('SET_ALL_BEERS', response)
           })
           .catch((error) => console.error(error))
+    },
+    CHANGE_PAGE ({ commit }, page) {
+      api.fetchBeersByPage(page)
+        .then(response => {
+            commit('SET_BEERS_PAGE', response, page)
+        })
+        .catch(error => console.error(error) )
     }
 }
