@@ -4,14 +4,20 @@
             <div class="columns is-mobile is-vcentered">
                 <div class="column is-two-thirds">
                     <strong>{{ name }}</strong> 
-                    <ul v-if="method.temp">
+                    <ul v-if="Array.isArray(method)">
+                        <li>Temp: {{ method[0].temp.value }}</li>
+                        <li>Unit: {{ method[0].temp.unit }}</li>
+                        <li v-if="method[0].duration">Duration: {{ method[0].duration}}</li>
+                    </ul>
+                    <ul v-else-if="method.temp">
                         <li>Temp: {{ method.temp.value }}</li>
                         <li>Unit: {{ method.temp.unit }}</li>
-                        <li v-if="method.duration">Duration: {{ method.duration}}</li>
                     </ul>
+                    <p v-if="typeof method === 'string'">{{ method }}</p>
                 </div>
                 <div class="column">
-                    <Button />
+                    <Button v-if="Array.isArray(method)" :duration="method[0].duration" />
+                    <Button v-else-if="method.temp" />
                 </div>
            </div>
         </div>
