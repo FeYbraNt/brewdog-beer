@@ -38,6 +38,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Pending improvements
 
-- Pagination
-- Button countdowns for methods with duration
 - Hop order
+- (New) Infinite scrolling
