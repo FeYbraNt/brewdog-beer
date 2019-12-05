@@ -6,7 +6,7 @@
             :current.sync="current"
             aria-page-label="Page"
             aria-current-label="Current page"
-            :change="changePage">
+            :change="changePage()">
         </b-pagination>
     </div>
 </template>
@@ -18,9 +18,8 @@ export default {
         current: 1
     }),
     methods: {
-        changePage(value) {
-            console.log(value)
-            return value
+        changePage() {
+            this.$store.dispatch('CHANGE_PAGE', this.current)
         }
     }
 }

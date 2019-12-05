@@ -30,14 +30,6 @@ export default {
                 this.error = error
                 this.isLoading = false
             })
-        /*
-        this.$store.dispatch('FETCH_ALL_BEERS')
-            .then(() => this.isLoading = false)
-            .catch((error) => {
-                this.error = error
-                this.isLoading = false
-            })
-        */
     }
 }
 </script>
